@@ -1,0 +1,28 @@
+﻿@using CSMVC4SchoolProject.Models
+@model List<Room>
+
+@{
+    ViewBag.Title = "Room";
+}
+
+<h2>Rooms</h2>
+<a href="Room/Add" class="btn">Add</a><br /><br />
+<table>
+    <tr>
+        <td>
+            Room number
+        </td>
+        <td>
+            Max students
+        </td>
+        <td></td>
+    </tr>
+    @foreach (Room r in @Model)
+    {
+        <tr>
+            <td class="mediumTableWidth">@r.description</td>
+            <td class="mediumTableWidth">@r.MaxStudents</td>
+            <td><a href="Room/Edit?ID=@r.KeyField" class="btn">Edit</a> <a href="Room/Delete?ID=@r.KeyField" class="btn" onclick="return confirm ('Delete this room?');">Delete</a></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,30 @@
+﻿@model CSMVC4SchoolProject.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="textCenter">
+@using (Html.BeginForm())
+{
+    if (Session["loginGreeting"] == null)
+    {
+    <h2>Please Login</h2>
+        @Html.TextBox("Username", null, new { @placeholder = "Enter Username" })
+        <span class="fB red">@Html.ValidationMessageFor(d => d.Username)</span><br />
+        @Html.TextBox("Password", null, new { @placeholder = "Enter Password", @type = "password" })
+        <span class="fB red">@Html.ValidationMessageFor(d => d.Password)</span><br /><br />
+        if ((@ViewBag.ErrorMessage != null) && (@ViewBag.ErrorMessage.Length > 0))
+        {
+            <label class="fB red">@ViewBag.ErrorMessage</label><br /><br />
+        }
+        <button type="submit" class="btn">Login</button><br /><br />
+    }
+    
+    else
+    {
+        <h2>Thank you for logining. Please select an option</h2>
+    }
+}
+</div>

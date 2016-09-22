@@ -1,0 +1,298 @@
+﻿/* - THIS IS THE DEFAULT C# STYLE - */
+body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: lightgray;
+}
+
+.contentWrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+.red {
+    color: red;
+}
+.fB {
+    font-weight: bold;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+/* - THIS IS THE END OF THE C# STYLE - */
+.header, .footer {
+    color: #1fb6ed;
+    background-color: #102f4e;
+    border-radius: 7px;
+}
+.footer {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+}
+.imgLogo {
+    width: 250px;
+    padding: 2px 2px 2px 2px;
+}
+.loginBtn {
+    float: right;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+/* ======================== */
+/* ===== START NAVBAR ===== */
+/* ======================== */
+.menuNav {
+  float: right;
+  color : white;
+  width : 570px;
+  height: 27px;
+  margin-top: 55px;
+}
+.footerNavbar, .menuNavbar {
+    list-style-type: none;
+    background-color : #102f4e;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: inline-table;
+}
+
+.footerNavbar > li, .menuNavbar > li {
+  display: inline; 
+  float: left; 
+  background-color : #1fb6ed;
+  border-radius: 7px 7px 0px 0px;
+  padding-top: 5px;    
+  padding-right: 15px;
+  padding-bottom: 5px; 
+  padding-left : 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+  /* border-right-style: solid; 
+  border-right-color: #102f4e;
+  border-right-width: thin; */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+.menuNavbar > li:hover, .footerNavbar li:hover {
+	background-color:  #1ba6d8;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.menuNavbar > li:last-of-type {
+  border-right-style: none;
+  padding-right: 22px; 
+}
+
+     
+.footerNavbar > li:last-of-type {
+  border-right-style: none; 
+}
+
+.footerNavbar > li a, .menuNavbar > li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footerNavbar ul, .menuNavbar ul {
+	display: none;
+}
+	.footerNavBar li:hover ul, .menuNavbar li:hover ul {
+		display: block;
+
+	}
+.subMenu {
+    background-color : white; 
+    border-style: solid;
+    border-color: #1ba6d8;
+    border-radius: 0px 10px 10px 10px;
+    list-style-type: none;
+    margin-top: 5px; 
+    margin-left: -15px;
+    padding: .5em; 
+    position: absolute;
+    z-index: 10;
+    width: 215px;
+}
+
+.subMenu > li {
+  padding: 3px;
+}
+
+/*
+.subMenu > li:hover {
+   color:#094d86;
+   font-weight: bold;
+}
+    */
+
+.subMenu > li a {
+  color: black;
+  text-decoration: none;
+}
+   .subMenu > li:hover a {
+      color : #1ba6d8;
+      font-weight: bold;
+   }
+
+.dropMenu {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	padding: 5px;
+	height: 20px;
+	max-height: 20px;
+	width: 211px;
+	background: #fff;
+	cursor: pointer;
+	border: 1px solid;
+
+}
+
+	.dropMenu:hover .dropSubMenu {
+		display: inline-block;
+
+	}
+
+	.dropSubMenu {
+		display: none;
+        list-style-type: square;
+        border-style: none solid solid solid;
+        border-color: #094d86;
+        border-width: 1px;
+        margin-left: -6px;
+		width: 201px;
+		background: #fff;
+		padding: 10px;
+        position: relative;
+        z-index: 5;
+	}
+
+	.dropSubMenu li {
+        margin-left: 15px;
+		padding: 5px;
+
+	}
+    .dropSubMenu li:before {
+        color: #a2784e;
+    }
+/* ====================== */
+/* ===== END NAVBAR ===== */
+/* ====================== */
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.textCenter {
+    text-align: center;
+}
+.mediumTableWidth {
+    width: 200px;
+}
+
+.tab{
+    background-color: #1fb6ed;
+    color: white;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-style: none; 
+    font-weight:bold;
+}
+
+.tab:hover{
+    background-color: white ;
+    color: #1fb6ed;
+    transition-duration: .5s
+}
+
+.tabActive{
+     background-color: aqua ;
+    color: #1fb6ed;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-style: none; 
+    font-weight:bold;
+}
+
+.tabPage{
+    background-color: #1fb6ed;
+    color: white;
+    border-style: none; 
+    font-weight:bold;
+    height:auto;
+    width:auto;
+    margin-bottom:5px;
+    margin-top:-3px;
+    margin-left:3px;
+    padding-left:10px;
+    padding-top:10px;
+    padding-bottom:20px;
+}
+
+#tblGeneral #tblSchool #tblHealth input {
+    margin: 5px;
+}
+
+.tblHealthConditions
+{
+
+}

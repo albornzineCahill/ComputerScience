@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-1.7.1.min.js")
+</head>
+
+<body>
+    <div class="contentWrapper">
+        <div class="header">
+            @if (Session["loginGreeting"] == null)
+            {
+                <a id ="loginBtn" href="Login" class="btn loginBtn">Login</a>
+            }
+            else
+            {
+                <a id ="loginBtn" href="Logout" class="btn loginBtn">Logout</a>
+            }
+                <label id="lblID" class="loginBtn">
+                    @Session["loginGreeting"]
+                </label>
+            <div class="menuNav">
+          <ul class="menuNavbar">
+              <li><a href="Home">Home</a></li>
+              <li>Administrator
+    	        <ul class="subMenu">
+                   <li><a href="EnrollmentTypes">Enrollment Types</a></li>
+                   <li><a href="Room">Rooms</a></li>
+                </ul>
+              </li>
+                  <li>People
+	        <ul class="subMenu">
+                <li><a href="LookUpPerson">Get Person</a></li>
+                <li><a href="PersonalSavings">Search Person</a></li>
+            </ul>
+            </li>
+              <li>TEST 3
+	        <ul class="subMenu">
+                <li><a href="PersonalChecking">Checking</a></li>
+                <li><a href="PersonalSavings">Savings, CDs & IRAs</a></li>
+                <li><a href="PersonalLoans">Loans</a></li>
+                <li><a href="OverdraftCounselingTools">Overdraft Counseling Tools</a></li>
+                <li><a href="PersonalOtherProducts">Other Products</a></li>
+                <li><a href="LeavingSite?Dest=http://www.24-7cardaccess.com">Check Credit Card Balance</a></li>
+            </ul>
+            </li>
+              <li><a href="ContactUs">Contact Us</a></li>
+            </ul>
+                </div>
+        <a href="Home"><img src="/content/images/SchoolRegistrationProgramLogo.png" class="imgLogo" /></a>
+    </div>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+            <div class="footer">
+        <p>© 2015 School Registration Program, All Rights Reserved.</p>
+    </div>
+        </div>
+</body>
+</html>

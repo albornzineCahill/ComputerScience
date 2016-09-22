@@ -1,0 +1,48 @@
+﻿@using CSMVC4SchoolProject.Models
+@model List<EnrollmentType>
+
+@{
+    ViewBag.Title = "Enrollment Types";
+}
+
+<h2>Enrollment Types</h2>
+<a href="../EnrollmentTypes/Add" class="btn">Add</a><br /><br />
+<form action="Edit" method="post">
+<table>
+    <tr>
+        <td>
+            Enrollment Type
+        </td>
+        <td>
+            Order
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    @{ int i = 0; }
+    @foreach (EnrollmentType et in @Model)
+    {
+        if (et.KeyField == Convert.ToInt16(@ViewBag.KeyField))
+        {
+            string desc = string.Format("[{0}].Description", @i);
+            string order = string.Format("[{0}].DisplayOrder", @i);
+            string key = string.Format("[{0}].KeyField", @i);
+            <tr>
+                <td><input type="hidden" value="@et.KeyField" name="@key" id="@key" /></td>
+                <td><input type="text" value="@et.Description" name="@desc" id="@desc" /></td>
+                <td><input type="number" value="@et.DisplayOrder" name="@order" id="@order" /></td>
+                <td><input type="submit" class="btn" value="Save" /> <a href="../EnrollmentTypes" class="btn">Cancel</a></td>
+            </tr>
+        }
+        else 
+        { 
+            <tr>
+                <td class="mediumTableWidth">@et.Description</td>
+                <td class="mediumTableWidth">@et.DisplayOrder</td>
+                <td><a href="../EnrollmentTypes/Edit?ID=@et.KeyField" class="btn">Edit</a> <a href="../EnrollmentTypes/Delete?ID=@et.KeyField" class="btn" onclick="return confirm ('Delete this enrollment type?');">Delete</a></td>
+            </tr>
+        }
+    }
+</table>
+</form>

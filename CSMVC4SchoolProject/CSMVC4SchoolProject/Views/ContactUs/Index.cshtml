@@ -1,0 +1,57 @@
+﻿@using CSMVC4SchoolProject.Models;
+@model ContactUs
+
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+<div class="pageTitle">
+  <h1>Contact Us</h1>
+  <div class="breadCrumb">@Html.Raw(@ViewBag.Breadcrumb)</div>
+</div>
+
+<div class="Contact"><br />
+    <span class="fB red">* </span>Indicates Required Field<br /><br />
+
+@using (Html.BeginForm())
+{
+    <div class="ContactContext">
+         <table class="EmailContact">
+             <tr>
+                 <td>Name:<span class="red"> * </span></td>
+                 <td colspan="3">
+                     @Html.TextBox("Name", null, new { @style = "width:300px;"})
+                     <span class="fB red">@Html.ValidationMessageFor(d=>d.Name)</span>
+                 </td>
+             </tr>
+             <tr>
+                 <td>Phone:<span class="red"> * </span></td>
+                 <td>
+                     @Html.TextBox("Phone", null, new { @style = "width:120px;" })       
+                     <span class="fB red">@Html.ValidationMessageFor(d=>d.Phone)</span>               
+                 </td>
+             </tr>
+             <tr>
+                 <td>Email:<span class="red"> * </span></td>
+                 <td colspan="3">
+                     @Html.TextBox("EMail", null, new { @style = "width:300px;"})
+                     <span class="fB red">@Html.ValidationMessageFor(d=>d.EMail)</span>
+                 </td>
+             </tr>
+         </table>
+         <br />
+        <table> 
+             <tr>
+                 <td colspan="2">Comments/Questions: </td>
+             </tr>
+             <tr>   
+                 <td>@Html.TextArea("Comments", null, new { @cols=80, @rows=8}) </td>
+             </tr>
+         </table>
+         <div class="EmailSubmit">
+            <input type="submit" value="Click To Send" id="sendEmail" class="btn" />   
+         </div>
+    </div>
+
+}
+</div>

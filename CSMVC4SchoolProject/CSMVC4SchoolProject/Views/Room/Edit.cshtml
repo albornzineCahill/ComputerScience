@@ -1,0 +1,46 @@
+﻿@using CSMVC4SchoolProject.Models
+@model List<Room>
+
+@{
+    ViewBag.Title = "Room";
+}
+
+<h2>Enrollment Types</h2>
+<a href="../Room/Add" class="btn">Add</a><br /><br />
+<form action="Edit" method="post">
+    <table>
+        <tr>
+            <td>
+                Rooms
+            </td>
+            <td>
+                Max Students
+            </td>
+            <td></td>
+        </tr>
+        @{ int i = 0; }
+        @foreach (Room r in @Model)
+        {
+            if (r.KeyField == Convert.ToInt16(@ViewBag.KeyField))
+            {
+                string desc = string.Format("[{0}].Description", @i);
+                string maxStudents = string.Format("[{0}].MaxStudents", @i);
+                string key = string.Format("[{0}].KeyField", @i);
+                <tr>
+                    <td><input type="hidden" value="@r.KeyField" name="@key" id="@key" /></td>
+                    <td><input type="text" value="@r.description" name="@desc" id="@desc" /></td>
+                    <td><input type="number" value="@r.MaxStudents" name="@maxStudents" id="@maxStudents" /></td>
+                    <td><input type="submit" class="btn" value="Save" /> <a href="../Room" class="btn">Cancel</a></td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td class="mediumTableWidth">@r.description</td>
+                    <td class="mediumTableWidth">@r.MaxStudents</td>
+                    <td><a href="../room/Edit?ID=@r.KeyField" class="btn">Edit</a> <a href="../Room/Delete?ID=@r.KeyField" class="btn" onclick="return confirm ('Delete this enrollment type?');">Delete</a></td>
+                </tr>
+            }
+        }
+    </table>
+</form>

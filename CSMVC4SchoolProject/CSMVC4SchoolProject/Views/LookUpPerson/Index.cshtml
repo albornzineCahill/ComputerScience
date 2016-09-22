@@ -1,0 +1,120 @@
+﻿@using CSMVC4SchoolProject.Models;
+@model People
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/AppUtilities.js"></script>
+<script src="~/Scripts/people.js"></script>
+<script type="text/javascript">
+
+    activeTab = "No active Tab";
+    function ddlLookUpChange()
+    {
+
+        var ddl = document.getElementById("ddlLookup");
+        if (ddl.selectedIndex === -1) {
+            return;
+        }
+        if (activeTab === 'btnGeneral')
+        {
+            getPersonGeneral(ddl.options[ddl.selectedIndex].value);
+        }
+        else if (activeTab === 'btnChurch') {
+            getPersonChurch(ddl.options[ddl.selectedIndex].value);
+        }
+        else if (activeTab === 'btnHealth') {
+            getPersonHealth(ddl.options[ddl.selectedIndex].value);
+        }
+
+        //alert('index ' + ddl.selectedIndex + ' value ' + ddl.options[ddl.selectedIndex].value + ' text ' + ddl.options[ddl.selectedIndex].text)
+    }
+
+    function tabclick(id)
+    {
+        setActivBtn(id);
+        activeTab = id;
+        if(id==='btnGeneral')
+        {
+            generalLogic();
+        }
+        else if (id === 'btnSchool')
+        {
+            schoolLogic();
+        }
+        else if (id === 'btnHealth') {
+            healthLogic();
+        }
+        else if (id === 'btnChurch') {
+            churchLogic();
+        }
+        else if (id === 'btnParentInfo') {
+            parentInfoLogic();
+        }
+        ddlLookUpChange();
+
+    }
+
+    function generalLogic(id) {
+        var content = '<!doctype html><head></head><style>.sidePadding{Padding-left: 5px; Padding-right: 5px;}.adrTblHeader{width: 100px; border-bottom-style: solid}.table{border-color: black; border-style: solid; border-radius: 10px; background-color: blue; color: lightgrey;}.tableEntries{background-color: blue; color: lightgrey;border-style: none;Width: 90px;font-weight:bold;}</style><body><table style="margin-left:0; margin-right:0;" id="tblgeneral"><tbody><tr><td>first name </td><td><input class="inputclass" type="text" id="firstname" name="firstname"></td><td>last name</td><td><input type="text" id="lastname" name="lastname"></td><td>gender </td><td><input style="width: 20px" type="text" id="gender" name="gender"> </td></tr><tr><td>date of birth</td><td><input type="date" id="dob" name="dob"></td><td>age</td><td><input type="number" id="age" name="age"></td><td> </td><td> </td></tr><tr><td colspan="6"><br></td></tr><tr><td>primary phone</td><td><input type="text" id="primaryphone" name="primaryphone"></td><td>secondary phone</td><td><input type="text" id="secondaryphone" name="secondaryphone"></td><td colspan="2"></td></tr><tr><td>social security number</td><td><input type="text" id="ssn" name="ssn"></td><td colspan="4"></td></tr></table> <table Class="table"><tr ><th Class="adrTblHeader"> primary address</th><th Class="adrTblHeader"> address line 1</th><th Class="adrTblHeader"> address line 2</th><th Class="adrTblHeader"> city</th><th Class="adrTblHeader"> zip</th><th Class="adrTblHeader"> state</th></tr><tr ><th class="sidePadding"> yes</th><th class="sidePadding"> 911 kelly june drive</th><th class="sidePadding"> none</th><th class="sidePadding"> mt juliet </th><th class="sidePadding"> 37122</th><th class="sidePadding"> tn</th><th class="sidePadding"> <button type="submit" class="btn">Edit</button><br/><br/></th><th class="sidePadding"> <button type="submit" class="btn">Delete</button><br/><br/></th></tr><tr ><th class="sidePadding"> no</th><th class="sidePadding"> add1</th><th class="sidePadding"> adr2</th><th class="sidePadding"> city </th><th class="sidePadding"> Zip </th><th class="sidePadding"> State</th><th class="sidePadding"> <button type="submit" class="btn">Edit</button><br/><br/></th><th class="sidePadding"> <button type="submit" class="btn">Delete</button><br/><br/></th></tr></table> <br><table Class="table"><tr ><th Class="adrTblHeader"> primary address</th><th Class="adrTblHeader"> address line 1</th><th Class="adrTblHeader"> address line 2</th><th Class="adrTblHeader"> city</th><th Class="adrTblHeader"> zip</th><th Class="adrTblHeader"> state</th></tr><tr ><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="Y/N"> </th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="adr1"></th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="adr2"> </th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="city"> </th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="Zip"></th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="State"></th><th> <button type="submit" class="tableEntries" style="width: auto;" >Delete Address</button><br/></th></tr><tr ><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="Y/N"></th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="adr1"></th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="adr2"></th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="city"></th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="Zip"></th><th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="State"></th><th> <button type="submit" class="tableEntries" style="width: auto;" >Delete Address</button><br/></th></tr><tr ><th><button type="submit" class="tableEntries">Add an Address</button><br/></th></tr></table> </html>';
+        $('#tabPage').empty().append(content);
+    }
+
+    function schoolLogic(id) {
+        var content = '<!DOCTYPE html><head></head><body><table id="tblSchool"> <tbody><tr><td>Grade</td><td><input type="number" id="grade" name="grade"></td></tr><tr><td>Will Graduate</td><td><input type="checkbox" id="willGraduate" name="willGraduate"></td></tr><tr><td>Enrollment Type</td><td><select id="enrollmentType" name="enrollmentType"><option value="none">Please select one</option><option value="eaglesNest">Eagles Nest</option><option value="coop">K-6</option><option value="tutorial">7-12</option></select></td></tr><tr><td>person Type</td><td><select id="enrollmentType" name="enrollmentType"><option value="none">Please select one</option><option value="Student">Student</option><option value="Teacher">Teacher</option><option value="Parent">Parent</option><option value="Admin">Admin</option></select></td></tr><tr><td>Last Year of school</td><td><input type="number" id="lastYear" name="lastYear"></td></tr><tr><td>Support Group or Coop</td><td><input type="text" id="supportGroup" name="supportGroup"></td></tr><tr><td>In MTHEA<input type="checkbox" id="MTHEA"></td><td>In HSLDA<input type="checkbox" id="HSLDA"></td></tr></tbody></table> <table style="border-color: black; border-style: solid; border-Radius: 10px; background-color: blue; color: lightGrey;"><tr ><th style="width: 150px; border-bottom-style: solid "> Class</th><th style="width: 75px; border-bottom-style: solid "> Grade</th><th style="width: 75px; border-bottom-style: solid "> Year</th><th style="width: 75px; border-bottom-style: solid "> Time</th><th style="width: 75px; border-bottom-style: solid "> Room</th></tr><tr><th> example class 1</th><th> 12</th><th> 1234</th><th> 12:40</th><th> 333</th></tr><tr><th> example class 2</th><th> 09</th><th> 8765</th><th> 45:23</th><th> 523</th></tr></table></body></html>';
+            $('#tabPage').empty().append(content);
+    }
+
+    function healthLogic(id) {
+        var content = '<!DOCTYPE html><head></head><body><table id="tblHealth" cellspacing="10"> <tbody><tr><td>allergies <input type="text" id="allergyDescription" name="allergyDescription"></td></tr><tr><td><div style="font-weight: bold; border-bottom-style:solid; border-bottom-width: 2px;" align="center">health conditions</div><table align="center" class="tblHealthConditions" > <tbody><tr><td>condition</td><td>expanation</td></tr><tr><td> condition</td><td> expanation</td></tr><tr></tbody></table><br><input type="checkbox" id="HadChickenPox" name="HadChickenPox">Had chicken pox<br><input type="checkbox" id="HadMeasles" name="HadMeasles">Had measles<br><input type="checkbox" id="HadMumps" name="HadMumps">Had mumps<br><input type="checkbox" id="HadWhoopingCough" name="HadWhoopingCough">Had whooping cough<br><input type="checkbox" id="HadOtherChildDiseases" name="HadOtherChildDiseases">Had Other childhood diseases<br><textarea placeholder="explain here" rows="10" cols="64" type="text" id="OtherChildhoodDiseases" name="OtherChildhoodDiseases"></textarea><br>Date Of tetanus shot <input type="date" id="DateOfTetanusShot" Name="DateOfTetanusShot"></td><td><input type="checkbox" id="HasAsthma" name="HasAsthma">Has Asthma<br><input type="checkbox" id="HasSinusitus" name="HasSinusitus">Has Sinusitus<br><input type="checkbox" id="HasBronchitis" name="HasBronchitis">Has Bronchitis<br><input type="checkbox" id="HasKidneyTrouble" name="HasKidneyTrouble">Has Kidney trouble<br><input type="checkbox" id="HasHeartTrouble" name="HasHeartTrouble">Has Heart trouble<br><input type="checkbox" id="HasDiabetes" name="HasDiabetes">Has Diabetes<br><input type="checkbox" id="HasDizziness" name="HasDizziness">Has Dizziness<br><input type="checkbox" id="HasStomachUpsets" name="HasStomachUpsets">Has Stomach Upsets<br><input type="checkbox" id="HasHeyFever" name="HasHeyFever">Has Hey Fever<br><input type="checkbox" id="HasLearningDisibilities" name="HasLearningDisibilities">Has Learning Disibilities<br><input type="checkbox" id="HasPhysicalDisibilities" name="HasPhysicalDisibilities">Has Physical Disibilities<br>Please explan disibilities:<br><textarea placeholder="explain here" rows="5" cols="30" type="text" id="Explanation" name="Explanation"></textarea></td><td><div>Past oberations and illnesses:</div><textarea placeholder="explain here" rows="6" cols="25" type="text" id="PastOperationsOrIllnesses" name="PastOperationsOrIllnesses"></textarea><br><div>current medication</div><textarea placeholder="explain here" rows="6" cols="25" type="text" id="CurrentMeds" name="CurrentMeds"></textarea><br><div>Special diets and Needs</div><textarea placeholder="explain here" rows="6" cols="25" type="text" id="SpecialDietOrNeeds" name="SpecialDietOrNeeds"></textarea></td></tr></tbody></table><br><table> <tbody><tr><td>insurance co</td><td><input type="text" id="InsuranceCo" name="InsuranceCo"></td></tr><tr><td>policy number</td><td><input type="text" id="PolicyNum" name="PolicyNum"></td></tr><tr><td>subscriber number</td><td><input type="text" id="SubscriberNum" name="SubscriberNum"></td></tr><tr><td>subscriber employer</td><td><input type="text" id="SubscriberEmployer" name="SubscriberEmployer"></td></tr><tr><td>subscriber name</td><td><input type="text" id="SubscriberName" name="SubscriberName"></td></tr><tr><td>subscriber job</td><td><input type="text" id="SubscriberJob" name="SubscriberJob"></td></tr><tr><td>subscriber number work phone</td><td><input type="text" id="SubscriberWorkPhone" name="SubscriberWorkPhone"></td></tr><tr><td>is primary insurance<input type="checkbox" id="isPrimaryInsurance" name="isPrimaryInsurance"></td></tr></tbody></table><br>Family doctor<input style="margin: 5px" type="text" id="familyDoctor" Name="familyDoctor">Family doctor phone number<input style="margin: 5px" type="humber" id="familyDoctorPhone" Name="familyDoctorPhone"></body></html>';
+        $('#tabPage').empty().append(content);
+    }
+
+    function churchLogic(id) {
+        var content = '<!DOCTYPE html><head></head><body>Church<input style="margin: 5px" type="text" id="Church" Name="Church">Denomination<input style="margin: 5px" type="text" id="Denomination" Name="Denomination"></body></html>';
+        $('#tabPage').empty().append(content);
+
+    }
+    function parentInfoLogic(id) {
+        var content ='<!DOCTYPE html><head></head><body><u><b>Mother</b></u><table><tbody><tr><td>First Name</td><td><input style="margin: 5px" type="text" id="momFirstName" Name="momFirstName"></td><td>Last Name</td><td><input style="margin: 5px" type="text" id="momLastName" Name="momLastName"></td></tr><tr><td>Email</td><td><input style="margin: 5px" type="text" id="momEmail" Name="momEmail"></td><td>Phone Number</td><td><input style="margin: 5px" type="text" id="momPhoneNumber" Name="momPhoneNumber"></td></tr></tbody></table><div><input type="button" value="link to Mothers File"></div><br><br><u><b>Father</b></u><table><tbody><tr><td>First Name</td><td><input style="margin: 5px" type="text" id="dadFirstName" Name="dadFirstName"></td><td>Last Name</td><td><input style="margin: 5px" type="text" id="dadLastName" Name="dadLastName"></td></tr><tr><td>Email</td><td><input style="margin: 5px" type="text" id="dadEmail" Name="dadEmail"></td><td>Phone Number</td><td><input style="margin: 5px" type="text" id="dadPhoneNumber" Name="dadPhoneNumber"></td></tr></tbody></table><div><input type="button" value="link to Fathers File"></div></body></html>';
+        $('#tabPage').empty().append(content);
+
+    }
+</script>
+
+<h2>Students</h2>
+<b>Please select a person</b>
+
+<select id="ddlLookup", onchange="ddlLookUpChange();">
+
+    @foreach (LookUp l in ViewBag.PeopleLookUp)
+    {
+        <option value=@l.keyfield>@l.name</option>
+    }
+
+</select>
+
+<br />
+<table>
+    <tr id="btnRow"> 
+    <td><input id="btnGeneral"class="tab" type="button" value="general" onclick="tabclick(this.id);"/></td>
+    <td><input id="btnSchool"class="tab" type="button" value="school" onclick="tabclick(this.id);"/></td>
+    <td><input id="btnChurch"class="tab" type="button" value="church" onclick="tabclick(this.id);"/></td>
+    <td><input id="btnHealth"class="tab" type="button" value="health" onclick="tabclick(this.id);"/></td>
+    <td><input id="btnParentInfo"class="tab" type="button" value="parent info" onclick="tabclick(this.id);"/></td>
+    </tr>
+</table>
+<div class="tabPage" id="tabPage" >
+<br />Please select a tab
+</div>
+
+<script type="text/javascript">
+    function setActivBtn(id)
+    {
+        $('#btnRow input').removeClass('tabActive');
+        $('#' + id).addClass('tabActive');
+    }
+
+
+</script>                          
