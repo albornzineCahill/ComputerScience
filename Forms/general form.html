@@ -1,0 +1,176 @@
+<!doctype html>
+<head>
+</head>
+
+<style>
+.sidePadding
+{
+Padding-left: 5px; 
+Padding-right: 5px;
+}
+
+.adrTblHeader
+{
+width: 100px; 
+border-bottom-style: solid
+}
+
+.table
+{
+border-color: black;
+ border-style: solid;
+ border-radius: 10px;
+ background-color: blue;
+ color: lightgrey;
+}
+
+.tableEntries
+{
+background-color: blue; 
+color: lightgrey;
+border-style: none;
+Width: 90px;
+font-weight:bold;
+}
+</style>
+
+<body>
+<table style= "margin-left:0; margin-right:0;" id="tblgeneral">
+<tbody>
+	<tr>
+		<td>
+			first name 
+		</td>
+		<td>
+			<input class="inputclass" type="text" id="firstname" name="firstname">
+		</td>
+		<td>
+			last name
+		</td>
+		<td>
+			<input   type="text" id="lastname" name="lastname">
+		</td>
+		<td>
+			gender
+ 		</td>
+		 <td>
+			<input style="width: 20px"  type="text" id="gender" name="gender">
+ 		</td>
+ 	</tr>
+	<tr>
+		<td>
+			date of birth
+		</td>
+		<td>
+			<input   type="date" id="dob" name="dob">
+		</td>
+		<td>
+			age
+		</td>
+		<td>
+			<input   type="number" id="age" name="age">
+		</td>
+ 		<td>
+		 </td>
+		 <td>
+		 </td>
+	</tr>
+	<tr>
+		<td colspan="6">
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			primary phone
+		</td>
+		<td>
+			<input   type="text" id="primaryphone" name="primaryphone">
+		</td>
+		<td>
+			secondary phone
+		</td>
+		<td>
+			<input   type="text" id="secondaryphone" name="secondaryphone">
+		</td>
+		<td colspan="2">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			social security number
+		</td>
+		<td>
+			<input   type="text" id="ssn" name="ssn">
+		</td>
+		<td colspan="4">
+		</td>
+	</tr>
+ </table>
+ <table Class="table">
+	<tr >
+		<th Class="adrTblHeader"> primary address</th>
+		<th  Class="adrTblHeader"> address line 1</th>
+		<th Class="adrTblHeader">  address line 2</th>
+		<th Class="adrTblHeader"> city</th>
+		<th Class="adrTblHeader"> zip</th>
+		<th Class="adrTblHeader"> state</th>
+		
+	</tr>
+	<tr >
+		<th class="sidePadding"> yes</th>
+		<th class="sidePadding"> 911 kelly june drive</th>
+		<th class="sidePadding"> none</th>
+		<th class="sidePadding"> mt juliet </th>
+		<th class="sidePadding"> 37122</th>
+		<th class="sidePadding"> tn</th>
+		<th class="sidePadding"> <button type="submit" class="btn">Edit</button><br /><br /></th>
+		<th class="sidePadding"> <button type="submit" class="btn">Delete</button><br /><br /></th>
+	</tr>
+	<tr >
+		<th class="sidePadding"> no</th>
+		<th class="sidePadding"> add1</th>
+		<th class="sidePadding"> adr2</th>
+		<th class="sidePadding"> city </th>
+		<th class="sidePadding"> Zip </th>
+		<th class="sidePadding"> State</th>
+		<th class="sidePadding"> <button type="submit" class="btn">Edit</button><br /><br /></th>
+		<th class="sidePadding"> <button type="submit" class="btn">Delete</button><br /><br /></th>
+	</tr>
+	</table>
+	 <br>
+ <!-- <table Class="table">
+	<tr >
+		<th Class="adrTblHeader"> primary address</th>
+		<th  Class="adrTblHeader"> address line 1</th>
+		<th Class="adrTblHeader">  address line 2</th>
+		<th Class="adrTblHeader"> city</th>
+		<th Class="adrTblHeader"> zip</th>
+		<th Class="adrTblHeader"> state</th>
+		
+	</tr>
+	<tr >
+		<th> <input class="tableEntries sidePadding" type="text" id="primaryphone" name="primaryphone" placeholder="Y/N"> </th>
+		<th> <input class="tableEntries sidePadding"   type="text" id="primaryphone" name="primaryphone" placeholder="adr1"></th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="adr2"> </th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="city"> </th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="Zip"></th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="State"></th>
+		<th> <button type="submit" class="tableEntries" style="width: auto;" >Delete Address</button><br /></th>
+			</tr>
+	<tr >
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="Y/N"></th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="adr1"></th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="adr2"></th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="city"></th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="Zip"></th>
+		<th> <input class="tableEntries sidePadding"  type="text" id="primaryphone" name="primaryphone" placeholder="State"></th>
+		<th> <button type="submit" class="tableEntries" style="width: auto;" >Delete Address</button><br /></th>
+		</tr>
+	<tr >
+		<th>
+		<button type="submit" class="tableEntries">Add an Address</button><br/>
+		</th>
+	</tr>
+	</table> -->
+ </html>
